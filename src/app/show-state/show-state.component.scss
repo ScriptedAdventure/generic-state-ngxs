@@ -1,6 +1,8 @@
 :host {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 4px;
     align-items: flex-start;
+    border: 1px solid grey;
+    padding: 8px;
 }

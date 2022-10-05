@@ -1,0 +1,5 @@
+<span>{{ state$ | async | json }}</span>
+
+<span>{{ (state$ | async)!.propertyC | json }}</span>
+
+<button (click)="dispatch()">Do Something</button>
