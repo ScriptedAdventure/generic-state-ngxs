@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Action, State, StateContext, StateToken } from '@ngxs/store';
+import { State, StateContext, StateToken } from '@ngxs/store';
 import {
   SomeSharedAction,
   SomeSharedInterface,
@@ -25,8 +25,8 @@ export const B_STATE_TOKEN = new StateToken<BStateModel>('B_STATE');
   },
 })
 @Injectable()
-export class BState extends SomeSharedState {
-  someSharedAction(ctx: StateContext<BState>, action: SomeSharedAction) {
+export class BState extends SomeSharedState<BStateModel> {
+  someSharedAction(ctx: StateContext<BStateModel>, action: SomeSharedAction) {
     alert('testB' + JSON.stringify(ctx.getState()));
   }
 }

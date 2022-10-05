@@ -15,10 +15,10 @@ export class SomeSharedAction {
   constructor(public token: StateToken<any>) {}
 }
 
-export abstract class SomeSharedState extends ShareableState {
+export abstract class SomeSharedState<T extends SomeSharedInterface> extends ShareableState<T> {
   @Action(SomeSharedAction)
   onSomeSharedAction(
-    ctx: StateContext<SomeSharedState>,
+    ctx: StateContext<T>,
     action: SomeSharedAction
   ) {
     if (!this.validateToken(action.token)) {
@@ -29,7 +29,7 @@ export abstract class SomeSharedState extends ShareableState {
   }
 
   abstract someSharedAction(
-    ctx: StateContext<SomeSharedState>,
+    ctx: StateContext<T>,
     action: SomeSharedAction
   ): void;
 }
